@@ -1,6 +1,7 @@
 @baseAddress = http://localhost:5090
-@categoryId = 08ddee43-004a-66cf-107c-612569090000
-@courseId = 08ddee5e-e7c9-f004-107c-612569090000
+@categoryId = 08ddee61-7663-69e9-107c-612569090000
+@courseId = 08ddee61-768f-fd74-107c-612569090000
+@userId = 69090000-6125-107c-c133-08ddee61768f
 
 GET {{baseAddress}}/api/categories
 Accept: application/json
@@ -52,6 +53,10 @@ Accept: application/json
 ###
 
 DELETE {{baseAddress}}/api/Courses/{{courseId}}
+Accept: application/json
+###
+
+GET {{baseAddress}}/api/Courses/user/{{userId}}
 Accept: application/json
 ###
 
