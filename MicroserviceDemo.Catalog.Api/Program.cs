@@ -1,5 +1,6 @@
 using MicroserviceDemo.Catalog.Api;
 using MicroserviceDemo.Catalog.Api.Features.Categories;
+using MicroserviceDemo.Catalog.Api.Features.Courses;
 using MicroserviceDemo.Catalog.Api.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ var app = builder.Build();
 
 
 app.AddCategoryGroupEndpointExt();
+app.AddCourseGroupEndpointExt();
 
 if (app.Environment.IsDevelopment())
 {
