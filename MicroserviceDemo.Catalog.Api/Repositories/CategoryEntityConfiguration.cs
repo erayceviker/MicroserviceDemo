@@ -1,5 +1,4 @@
 ﻿using MicroserviceDemo.Catalog.Api.Features.Categories;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MongoDB.EntityFrameworkCore.Extensions;
 

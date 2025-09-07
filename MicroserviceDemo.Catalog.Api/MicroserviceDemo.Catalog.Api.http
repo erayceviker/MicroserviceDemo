@@ -1,6 +1,21 @@
-@MicroserviceDemo.Catalog.Api_HostAddress = http://localhost:5090
+@baseAddress = http://localhost:5090
+@categoryId = 08ddee43-004a-66cf-107c-612569090000
 
-GET {{MicroserviceDemo.Catalog.Api_HostAddress}}/weatherforecast/
+
+GET {{baseAddress}}/api/categories
 Accept: application/json
-
 ###
+
+POST {{baseAddress}}/api/categories
+Content-Type: application/json
+Accept: application/json
+{
+  "name": "New Category"
+}
+###
+
+GET {{baseAddress}}/api/categories/{{categoryId}}}
+Accept: application/json
+###
+
+

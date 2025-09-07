@@ -1,19 +1,25 @@
+using MicroserviceDemo.Catalog.Api;
+using MicroserviceDemo.Catalog.Api.Features.Categories;
 using MicroserviceDemo.Catalog.Api.Options;
-using MicroserviceDemo.Catalog.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-builder.Services.AddOptionsExtension();
-builder.Services.AddRepositoryExtension();
-
+builder.Services.AddOptionsExt();
+builder.Services.AddDatabaseServiceExt();
+builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 
 var app = builder.Build();
 
+
+app.AddCategoryGroupEndpointExt();
+
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.Run();

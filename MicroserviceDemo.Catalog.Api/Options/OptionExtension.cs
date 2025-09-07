@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace MicroserviceDemo.Catalog.Api.Options
 {
     public static class OptionExtension
     {
-        public static IServiceCollection AddOptionsExtension(this IServiceCollection services)
+        public static IServiceCollection AddOptionsExt(this IServiceCollection services)
         {
             services.AddOptions<MongoOption>()
                 .BindConfiguration(nameof(MongoOption))
