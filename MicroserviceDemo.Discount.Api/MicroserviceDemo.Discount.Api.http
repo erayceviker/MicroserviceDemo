@@ -1,0 +1,18 @@
+@baseAddress= http://localhost:5252
+@userId = 69090000-6125-107c-c133-08ddee61768f
+@code = ABC123DEF1
+
+
+POST {{baseAddress}}/api/v1/discounts
+Content-Type: application/json
+{
+  "code": "ABC123DEF1",
+  "rate": 0.5,
+  "userId": "{{userId}}",
+  "expired": "2025-09-25T20:28:10.861Z"
+}
+###
+
+GET {{baseAddress}}/api/v1/discounts/{{code}}
+Content-Type: application/json
+###
