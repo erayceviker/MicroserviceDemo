@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceDemo.Discount.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceDemo.Shared", "MicroserviceDemo.Shared\MicroserviceDemo.Shared.csproj", "{5279E46B-1E48-8508-7D87-CF2537133469}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "file", "file", "{2D874E29-EC4A-4B5B-B66A-454E381C3700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceDemo.File.Api", "MicroserviceDemo.File.Api\MicroserviceDemo.File.Api.csproj", "{B2F750F1-B3A1-476D-B18A-AF7469FED225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{5279E46B-1E48-8508-7D87-CF2537133469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5279E46B-1E48-8508-7D87-CF2537133469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5279E46B-1E48-8508-7D87-CF2537133469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F750F1-B3A1-476D-B18A-AF7469FED225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F750F1-B3A1-476D-B18A-AF7469FED225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F750F1-B3A1-476D-B18A-AF7469FED225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F750F1-B3A1-476D-B18A-AF7469FED225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,8 @@ Global
 		{ED5F472E-27A2-43AC-A162-EB07C86BBD94} = {ADAAB62D-7886-4EE5-925E-79E74F844885}
 		{25463BB2-E836-4F43-A0D4-9CD0050026F6} = {ED5F472E-27A2-43AC-A162-EB07C86BBD94}
 		{5279E46B-1E48-8508-7D87-CF2537133469} = {B98169A6-3EE1-451B-AFE6-C269B89CBC81}
+		{2D874E29-EC4A-4B5B-B66A-454E381C3700} = {ADAAB62D-7886-4EE5-925E-79E74F844885}
+		{B2F750F1-B3A1-476D-B18A-AF7469FED225} = {2D874E29-EC4A-4B5B-B66A-454E381C3700}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67A78DEF-95B0-469A-8BBC-E11E8B382CE5}
