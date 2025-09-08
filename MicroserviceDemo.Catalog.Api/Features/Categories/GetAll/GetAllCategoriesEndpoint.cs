@@ -21,7 +21,7 @@ namespace MicroserviceDemo.Catalog.Api.Features.Categories.GetAll
     {
         public static RouteGroupBuilder GetAllCategoriesGroupItem(this RouteGroupBuilder group)
         {
-            group.MapGet("/", async (IMediator mediator) => (await mediator.Send(new GetAllCategoriesQuery())).ToGenericResult()).WithName("GetAllCategories");
+            group.MapGet("/", async (IMediator mediator) => (await mediator.Send(new GetAllCategoriesQuery())).ToGenericResult()).WithName("GetAllCategories").MapToApiVersion(1,0);
             return group;
         }
     }
