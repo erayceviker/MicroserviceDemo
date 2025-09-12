@@ -1,0 +1,63 @@
+@baseAddress = http://localhost:5117
+@courseId = 08ddee61-768f-fd74-107c-612569090000
+
+### Basket Service - Get User Basket
+GET {{baseAddress}}/v1/baskets/user
+Accept: application/json
+
+### Basket Service - Add Item to Basket
+POST {{baseAddress}}/v1/baskets/item
+Accept: application/json
+Content-Type: application/json
+{
+    "courseId":"{{courseId}}",
+    "courseName": "Python",
+    "coursePrice": 200
+}
+
+
+### Order Service - Create Order
+POST {{baseAddress}}/v1/orders
+Content-Type: application/json
+Accept: application/json
+{
+    "Address": {
+        "Line": "123 Main St",
+        "Province": "Ontario",
+        "District": "Toronto",
+        "ZipCode": "12345",
+        "Street": "Main St"
+    },
+    "Payment": {
+        "CardNumber": "4111111111111111",
+        "CardHolderName": "John Doe",
+        "Expiration": "12/25",
+        "Cvc": "123",
+        "Amount": 150.75
+    },
+    "Items": [
+    {
+        "ProductId": "{{courseId}}",
+        "ProductName": "Python",
+        "UnitPrice": 200
+    }
+    ]
+}
+
+### Create a Payment
+POST {{baseAddress}}/v1/payments
+Content-Type: application/json
+Accept: application/json
+{
+    "OrderCode": "6657c883-2e9b-43e4-a421-45f9ef25b415",
+    "CardNumber": "4111111111111111",
+    "CardHolderName": "John Doe",
+    "CardExpirationDate": "12/25",
+    "CardSecurityNumber": "123",
+    "Amount": 150.75
+}
+
+### Get All Payments
+GET {{baseAddress}}/v1/payments
+Accept: application/json
+###
