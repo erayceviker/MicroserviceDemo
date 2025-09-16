@@ -1,6 +1,6 @@
 [
   {
-    "Name": "New Profile",
+    "Name": "all-microservice",
     "Projects": [
       {
         "Path": "MicroserviceDemo.Payment.Api\\MicroserviceDemo.Payment.Api.csproj",
@@ -12,6 +12,22 @@
       },
       {
         "Path": "MicroserviceDemo.File.Api\\MicroserviceDemo.File.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MicroserviceDemo.Discount.Api\\MicroserviceDemo.Discount.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Microservice.Demo.Basket.Api\\Microservice.Demo.Basket.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MicroserviceDemo.Order.Api\\MicroserviceDemo.Order.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MicroserviceDemo.Gateway\\MicroserviceDemo.Gateway.csproj",
         "Action": "Start"
       }
     ]

@@ -1,13 +1,17 @@
 @baseAddress = http://localhost:5117
 @courseId = 08ddee61-768f-fd74-107c-612569090000
+@token= eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJCdjIzTmV1eGE5SG9KZV9tRm5kM0cxa09xSkVwVjBqOWNyalFzNDJ6b0RVIn0.eyJleHAiOjE3NTgwNjIzNTcsImlhdCI6MTc1ODA2MjA1NywianRpIjoiMDMzMDQ2NzktZWI3Ny00YWE0LWFhZDktNjg2NTAyMzYzODRjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9EZW1vVGVuYW50IiwiYXVkIjpbImJhc2tldC5hcGkiLCJwYXltZW50LmFwaSIsImRpc2NvdW50LmFwaSIsImdhdGV3YXkuYXBpIiwiY2F0YWxvZy5hcGkiLCJvcmRlci5hcGkiLCJmaWxlLmFwaSIsImFjY291bnQiXSwic3ViIjoiMDVlMTg0ZjMtMjAyOC00OGM4LTlmODQtOTFlYWQzMDQ4NDQ2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViIiwic2lkIjoiNTFlZGY3NzctZmZkNy00NWY3LWJkMGItN2RhODA5NzIxZDMyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWRlbW90ZW5hbnQiLCJpbnN0cnVjdG9yIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJuYW1lIjoiRXJheSDDp2V2aWtlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImVyYXljZXZpa2VyIiwiZ2l2ZW5fbmFtZSI6IkVyYXkiLCJmYW1pbHlfbmFtZSI6IsOnZXZpa2VyIiwiZW1haWwiOiJlcmF5Y2V2aWtlcjBAZ21haWwuY29tIn0.K7tSH7wvxlD4jInMiChDgcjMtZRd-7_Ew3e6HWKfz3WX4KOM38-RPwCPxiXQjniRSfwk3IltBQq03APsiPAkZ42f6UKdx_UXFTY3ZnkUO-_rR7x2Qe1ZRSfGFHPXbfbylKytzsC47gXMPEr6AFXjN1C09M282JzQUOto9Dtmt4MXPWTV1gH65pZ5FmelgD-GezEPIxLAAhH9gLRamBR_k2jq-XqIy4T15EOF5a0HUATzrbDFFedJLvAvJJtMPDgz-2jyiGF8byWledW12bOj6aSf2qujxbC1haJz5NSw4r9kPLyi-edoKfl4yLSPBKyJpJyi32J4rscavnAiYk4igw
+
 
 ### Basket Service - Get User Basket
 GET {{baseAddress}}/v1/baskets/user
 Accept: application/json
+Authorization: Bearer {{token}}
 
 ### Basket Service - Add Item to Basket
 POST {{baseAddress}}/v1/baskets/item
 Accept: application/json
+Authorization: Bearer {{token}}
 Content-Type: application/json
 {
     "courseId":"{{courseId}}",
@@ -19,6 +23,7 @@ Content-Type: application/json
 ### Order Service - Create Order
 POST {{baseAddress}}/v1/orders
 Content-Type: application/json
+Authorization: Bearer {{token}}
 Accept: application/json
 {
     "Address": {
@@ -47,6 +52,7 @@ Accept: application/json
 ### Create a Payment
 POST {{baseAddress}}/v1/payments
 Content-Type: application/json
+Authorization: Bearer {{token}}
 Accept: application/json
 {
     "OrderCode": "6657c883-2e9b-43e4-a421-45f9ef25b415",

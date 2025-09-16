@@ -5,12 +5,14 @@ using MicroserviceDemo.Order.Domain.Entities;
 using MicroserviceDemo.Shared;
 using MicroserviceDemo.Shared.Services;
 using System.Net;
+using MassTransit;
+using MicroserviceDemo.Bus.Events;
 
 namespace MicroserviceDemo.Order.Application.Features.Orders.Create
 {
     public class CreateOrderCommandHandler(IIdentityService identityService,
         IOrderRepository orderRepository,
-        IUnitOfWork unitOfWork) 
+        IUnitOfWork unitOfWork, IPublishEndpoint publishEndpoint) 
         : IRequestHandler<CreateOrderCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -48,6 +50,8 @@ namespace MicroserviceDemo.Order.Application.Features.Orders.Create
 
             orderRepository.Update(order);
             await unitOfWork.CommitAsync(cancellationToken);
+
+            await publishEndpoint.Publish(new OrderCreatedEvent(order.Id, identityService.UserId),cancellationToken);
 
             return ServiceResult.SuccessAsNoContent();
 
