@@ -15,7 +15,7 @@ namespace MicroserviceDemo.Payment.Api.Feature.Payments.GetAllPaymentsByUserId
                 .MapToApiVersion(1, 0)
                 .Produces(StatusCodes.Status200OK)
                 .Produces<ProblemDetails>(StatusCodes.Status400BadRequest)
-                .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);
+                .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError).RequireAuthorization("ClientCredential");
 
             return group;
         }

@@ -63,7 +63,7 @@ namespace MicroserviceDemo.Shared.Extensions
 
             // Sign
             // Aud  => payment.api
-            // Issuer => http://localhost:8080/realms/udemyTenant
+            // Issuer => http://localhost:8080/realms/DemoTenant
             // TokenLifetime
 
             return services;

@@ -12,6 +12,7 @@ builder.Services.AddOptionsExt();
 builder.Services.AddDatabaseServiceExt();
 builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 builder.Services.AddVersioningExt();
+builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
 
 var app = builder.Build();
 
@@ -29,6 +30,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 
