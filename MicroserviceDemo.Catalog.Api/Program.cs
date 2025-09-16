@@ -1,3 +1,4 @@
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.Catalog.Api;
 using MicroserviceDemo.Catalog.Api.Features.Categories;
 using MicroserviceDemo.Catalog.Api.Features.Courses;
@@ -13,6 +14,7 @@ builder.Services.AddDatabaseServiceExt();
 builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 builder.Services.AddVersioningExt();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+builder.Services.AddMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 

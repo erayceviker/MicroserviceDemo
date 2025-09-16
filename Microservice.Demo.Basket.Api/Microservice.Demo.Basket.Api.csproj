@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MicroserviceDemo.Bus\MicroserviceDemo.Bus.csproj" />
     <ProjectReference Include="..\MicroserviceDemo.Shared\MicroserviceDemo.Shared.csproj" />
   </ItemGroup>
 

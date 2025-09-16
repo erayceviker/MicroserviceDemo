@@ -4,7 +4,7 @@
         string Name,
         string Description,
         decimal Price,
-        string? ImageUrl,
+        IFormFile? Picture,
         Guid CategoryId) : IRequestByServiceResult<Guid>;
 
 }

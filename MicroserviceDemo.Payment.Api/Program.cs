@@ -1,3 +1,4 @@
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.Payment.Api;
 using MicroserviceDemo.Payment.Api.Feature.Payments;
 using MicroserviceDemo.Payment.Api.Repositories;
@@ -17,7 +18,7 @@ builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
 
 builder.Services.AddCommonServiceExt(typeof(PaymentAssembly));
 builder.Services.AddVersioningExt();
-
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 

@@ -1,3 +1,4 @@
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.Order.Api.Endpoints.Orders;
 using MicroserviceDemo.Order.Application;
 using MicroserviceDemo.Order.Application.Contracts.IUnitOfWork;
@@ -28,6 +29,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddVersioningExt();
 
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 

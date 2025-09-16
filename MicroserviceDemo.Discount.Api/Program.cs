@@ -1,3 +1,4 @@
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.Discount.Api;
 using MicroserviceDemo.Discount.Api.Features.Discounts;
 using MicroserviceDemo.Discount.Api.Options;
@@ -14,12 +15,15 @@ builder.Services.AddOptionsExt();
 builder.Services.AddDatabaseServiceExt();
 
 builder.Services.AddCommonServiceExt(typeof(DiscountAssembly));
-//builder.Services.AddMasstransitExt(builder.Configuration);
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 builder.Services.AddVersioningExt();
 
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
 var app = builder.Build();
 app.AddDiscountGroupEndpointExt(app.AddVersionSetExt());
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

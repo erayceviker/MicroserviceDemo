@@ -1,5 +1,6 @@
 using Microservice.Demo.Basket.Api;
 using Microservice.Demo.Basket.Api.Features.Baskets;
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
 builder.Services.AddVersioningExt();
 
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 var app = builder.Build();
 
 

@@ -1,3 +1,4 @@
+using MicroserviceDemo.Bus;
 using MicroserviceDemo.File.Api;
 using MicroserviceDemo.File.Api.Features.File;
 using MicroserviceDemo.Shared.Extensions;
@@ -18,6 +19,8 @@ builder.Services.AddVersioningExt();
 
 
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+builder.Services.AddMasstransitExt(builder.Configuration);
+
 var app = builder.Build();
 
 app.UseStaticFiles();
