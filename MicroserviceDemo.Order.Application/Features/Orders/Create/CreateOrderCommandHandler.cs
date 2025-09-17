@@ -7,12 +7,13 @@ using MicroserviceDemo.Shared.Services;
 using System.Net;
 using MassTransit;
 using MicroserviceDemo.Bus.Events;
+using MicroserviceDemo.Order.Application.Contracts.Refit.PaymentService;
 
 namespace MicroserviceDemo.Order.Application.Features.Orders.Create
 {
     public class CreateOrderCommandHandler(IIdentityService identityService,
         IOrderRepository orderRepository,
-        IUnitOfWork unitOfWork, IPublishEndpoint publishEndpoint) 
+        IUnitOfWork unitOfWork, IPublishEndpoint publishEndpoint, IPaymentService paymentService) 
         : IRequestHandler<CreateOrderCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -41,12 +42,18 @@ namespace MicroserviceDemo.Order.Application.Features.Orders.Create
             orderRepository.Add(order);
             await unitOfWork.CommitAsync(cancellationToken);
 
+            var paymentRequest = new CreatePaymentRequest(order.Code, request.Payment.CardNumber,
+                request.Payment.CardHolderName, request.Payment.Expiration, request.Payment.Cvc, order.TotalPrice);
 
-            // payment islemleri yapilacak
+            var paymentResponse = await paymentService.CreateAsync(paymentRequest);
 
-            var paymentId = Guid.Empty;
+            if (paymentResponse.Status == false)
+            {
+                return ServiceResult.Error(paymentResponse.ErrorMessage,HttpStatusCode.InternalServerError);
+            }
 
-            order.SetPaidStatus(paymentId);
+
+            order.SetPaidStatus(paymentResponse.PaymentId!.Value);
 
             orderRepository.Update(order);
             await unitOfWork.CommitAsync(cancellationToken);
