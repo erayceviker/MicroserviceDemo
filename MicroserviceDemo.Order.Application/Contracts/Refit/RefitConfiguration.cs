@@ -15,7 +15,8 @@ namespace MicroserviceDemo.Order.Application.Contracts.Refit
             services.AddScoped<AuthenticatedHttpClientHandler>();
             services.AddScoped<ClientAuthenticatedHttpClientHandler>();
 
-            services.AddOptions<IdentityOption>().BindConfiguration(nameof(IdentityOption)).ValidateDataAnnotations()
+            services.AddOptions<IdentityOption>().BindConfiguration(nameof(IdentityOption))
+                .ValidateDataAnnotations()
                 .ValidateOnStart();
 
             services.AddSingleton<IdentityOption>(sp => sp.GetRequiredService<IOptions<IdentityOption>>().Value);
@@ -25,8 +26,7 @@ namespace MicroserviceDemo.Order.Application.Contracts.Refit
                 .ValidateDataAnnotations()
                 .ValidateOnStart();
 
-            services.AddSingleton<ClientSecretOption>(sp =>
-                sp.GetRequiredService<IOptions<ClientSecretOption>>().Value);
+            services.AddSingleton<ClientSecretOption>(sp => sp.GetRequiredService<IOptions<ClientSecretOption>>().Value);
 
 
             services.AddRefitClient<IPaymentService>().ConfigureHttpClient(configure =>

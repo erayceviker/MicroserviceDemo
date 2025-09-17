@@ -16,16 +16,9 @@ namespace MicroserviceDemo.Order.Application.Contracts.Refit
                 return await base.SendAsync(request, cancellationToken);
             }
 
-
             using var scope = serviceProvider.CreateScope();
             var identityOptions = scope.ServiceProvider.GetRequiredService<IdentityOption>();
             var clientSecretOption = scope.ServiceProvider.GetRequiredService<ClientSecretOption>();
-
-            var discoveryRequest = new DiscoveryDocumentRequest()
-            {
-                Address = identityOptions.Address,
-                Policy = { RequireHttps = false }
-            };
 
             var client = httpClientFactory.CreateClient();
 
@@ -37,7 +30,6 @@ namespace MicroserviceDemo.Order.Application.Contracts.Refit
             {
                 throw new Exception($"Discovery document request failed: {discoveryResponse.Error}");
             }
-
 
             var tokenResponse = await client.RequestClientCredentialsTokenAsync(
                 new ClientCredentialsTokenRequest
